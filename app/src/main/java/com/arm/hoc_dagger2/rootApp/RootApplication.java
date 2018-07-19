@@ -13,14 +13,16 @@ import dagger.android.DispatchingAndroidInjector;
 import dagger.android.HasActivityInjector;
 
 // cái này chạy đầu tiên sẽ nạp zô bộ nhớ
-//HasActivityInjector
+//xem trong Manifest
 public class RootApplication extends Application implements HasActivityInjector {
 
     //tại cấp Application sẽ nói rằng, các Activity class sẽ có thể xài các @Inject
     //được khởi tạo trong các module
     @Inject
     DispatchingAndroidInjector<Activity> activityDispatchingAndroidInjector;
-
+    //muốn nói các Fragment sẽ xài dc @Inject thì implements thêm HasSupportFragmentInjector
+    //@Inject
+    //    DispatchingAndroidInjector<Fragment>
     @Override
     public void onCreate() {
         super.onCreate();
@@ -29,8 +31,11 @@ public class RootApplication extends Application implements HasActivityInjector 
         //những cái có thể xài @Inject sẽ dc cung cấp ở đây
         //vào AppComponent vào module để xem comment tiếp
         AppRootComponent appRootComponent = DaggerAppRootComponent.builder()
-                .application(this)
+//                .application(this)
                 .build();
+        //ở đây nói rằng class RootApplication này sẽ có thể xài dc @Inject DispatchingAndroidInjector
+        //của module AndroidInjectionModule
+        //appRootComponent.inject là kiểu void nên nó sẽ hiểu, không tin đổi sang kiểu khác mà xem, lỗi ngay
         appRootComponent.inject(this);
     }
 

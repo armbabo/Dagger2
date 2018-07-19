@@ -20,7 +20,7 @@ class RunApp {
 //                .battleComponent(DaggerBattleComponent
 //                .builder().build())
 //                .build();
-//        appComponent.inject(this class);
+//        appComponent.inject(this);
         //cách 1
         BattleComponent component = DaggerBattleComponent
                 .builder().build();
