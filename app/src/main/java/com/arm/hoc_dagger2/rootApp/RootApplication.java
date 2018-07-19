@@ -13,6 +13,7 @@ import dagger.android.DispatchingAndroidInjector;
 import dagger.android.HasActivityInjector;
 
 // cái này chạy đầu tiên sẽ nạp zô bộ nhớ
+//HasActivityInjector
 public class RootApplication extends Application implements HasActivityInjector {
 
     //tại cấp Application sẽ nói rằng, các Activity class sẽ có thể xài các @Inject
@@ -26,7 +27,7 @@ public class RootApplication extends Application implements HasActivityInjector 
 
         //các module ở đây
         //những cái có thể xài @Inject sẽ dc cung cấp ở đây
-        //vào AppComponent để xem comment tiếp
+        //vào AppComponent vào module để xem comment tiếp
         AppRootComponent appRootComponent = DaggerAppRootComponent.builder()
                 .application(this)
                 .build();

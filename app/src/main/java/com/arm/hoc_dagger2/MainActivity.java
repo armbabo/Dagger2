@@ -13,6 +13,7 @@ public class MainActivity extends AppCompatActivity {
 
     @Inject
     XaiTrongMainActivity xaiTrongMainActivity;
+
     @Override
     protected void onCreate(Bundle savedInstanceState) {
         super.onCreate(savedInstanceState);
