@@ -1,0 +1,1 @@
+include ':app', ':ex4', ':instantapp'
